@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 
 type NavItem = {
     label: string;
@@ -14,6 +14,38 @@ interface Props {
 function Navbar({ navOpen }: Props) {
     const lastActiveLink = useRef<HTMLAnchorElement | null>(null);
     const activeBox = useRef<HTMLDivElement | null>(null);
+
+    const initActiveBox = () => {
+        if (lastActiveLink.current && activeBox.current) {
+            activeBox.current.style.top =
+                lastActiveLink.current.offsetTop + "px";
+            activeBox.current.style.left =
+                lastActiveLink.current.offsetLeft + "px";
+            activeBox.current.style.width =
+                lastActiveLink.current.offsetWidth + "px";
+            activeBox.current.style.height =
+                lastActiveLink.current.offsetHeight + "px";
+        }
+    };
+
+    useEffect(initActiveBox, []);
+    window.addEventListener("resize", initActiveBox);
+
+    const activeCurrentLink = (event: React.MouseEvent<HTMLAnchorElement>) => {
+        lastActiveLink.current?.classList.remove("active");
+        event.currentTarget.classList.add("active");
+        lastActiveLink.current = event.currentTarget;
+
+        if (activeBox.current) {
+            activeBox.current.style.top = event.currentTarget.offsetTop + "px";
+            activeBox.current.style.left =
+                event.currentTarget.offsetLeft + "px";
+            activeBox.current.style.width =
+                event.currentTarget.offsetWidth + "px";
+            activeBox.current.style.height =
+                event.currentTarget.offsetHeight + "px";
+        }
+    };
 
     const navItems: NavItem[] = [
         {
@@ -52,7 +84,7 @@ function Navbar({ navOpen }: Props) {
                     key={key}
                     ref={ref}
                     className={className}
-                    onClick={null}
+                    onClick={activeCurrentLink}
                 >
                     {label}
                 </a>
