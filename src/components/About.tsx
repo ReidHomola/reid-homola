@@ -17,7 +17,7 @@ function About() {
           <p className="text-zinc-300 mb-4 md:mb-8 md:text-xl md:max-w-[60ch]">
             Welcome! I&apos;m Reid, a professional web developer with a knack
             for crafting visually stunning and highly functional websites.
-            Combining creativity and techinical expertise, I transform your
+            Combining creativity and technical expertise, I transform your
             vision into a digital masterpiece that excels in both appearance and
             performance.
           </p>
