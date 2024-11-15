@@ -45,7 +45,7 @@ const reviews = [
   },
 ];
 
-function Review() {
+function Reviews() {
   return (
     <section id="reviews" className="section overflow-hidden">
       <div className="container">
@@ -67,4 +67,4 @@ function Review() {
   );
 }
 
-export default Review;
+export default Reviews;

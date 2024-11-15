@@ -3,8 +3,9 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
-import Review from "./components/Review";
+import Reviews from "./components/Review";
 import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -15,9 +16,10 @@ const App = () => {
         <About />
         <Skills />
         <Projects />
-        <Review />
+        <Reviews />
         <Contact />
       </main>
+      <Footer />
     </>
   );
 };
