@@ -53,6 +53,7 @@ function Projects() {
               title={title}
               tags={tags}
               projectLink={projectLink}
+              classes="reveal-up"
             />
           ))}
         </div>
